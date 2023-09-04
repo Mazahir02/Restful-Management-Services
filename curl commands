@@ -1,0 +1,98 @@
+curl -v \
+--user weblogic:welcome1 \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/wls/latest
+
+#list server health
+
+curl -v \
+--user weblogic:welcome1 \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/wls/latest/servers
+
+
+curl -v \
+--user weblogic:welcome1 \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/tenant-monitoring/servers
+
+#list server specific details
+
+curl -v \
+--user weblogic:welcome1 \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/wls/latest/servers/id/osb_server1
+
+
+curl -v \
+--user weblogic:welcome1 \
+-H Accept:application/xml \
+-X GET http://localhost:7001/management/tenant-monitoring/servers/osb_server1
+
+
+#start server in synchronous mode
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X POST http://localhost:7001/management/wls/latest/servers/id/osb_server2/start
+
+
+#shutdown server in asynchronous mode
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X POST http://localhost:7001/management/wls/latest/servers/id/osb_server2/shutdown?__detached=true
+
+
+#list logs
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/wls/latest/servers/id/osb_server1/logs
+
+#list Server Logs
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/wls/latest/servers/id/osb_server1/logs/id/ServerLog
+
+#list Server Logs and list only 5 results
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/wls/latest/servers/id/osb_server1/logs/id/ServerLog?maxResults=5
+
+
+#start edit session
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X POST http://localhost:7001/management/wls/latest/changeManager/startEdit
+
+#list change manager options
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X GET http://localhost:7001/management/wls/latest/changeManager
+
+#activate edit session
+
+curl -v \
+--user weblogic:welcome1 \
+-H X-Requested-By:weblogic \
+-H Accept:application/json \
+-X POST http://localhost:7001/management/wls/latest/changeManager/activate
