@@ -1,0 +1,12 @@
+http://localhost:7001/management/tenant-monitoring/servers
+http://localhost:7001/management/tenant-monitoring/servers?format=full
+http://localhost:7001/management/tenant-monitoring/servers/osb_server1
+
+http://localhost:7001/management/tenant-monitoring/clusters
+http://localhost:7001/management/tenant-monitoring/clusters/osb_cluster
+
+http://localhost:7001/management/tenant-monitoring/applications
+http://localhost:7001/management/tenant-monitoring/applications/SampleWebApp
+
+http://localhost:7001/management/tenant-monitoring/datasources
+http://localhost:7001/management/tenant-monitoring/datasources/WLSSchemaDataSource
